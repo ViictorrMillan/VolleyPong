@@ -13,6 +13,9 @@ O jogo é ambientado em uma quadra de vôlei, com elementos visuais que remetem 
 
 2. Após escolher a opção de jogadores, o jogo começará, e você poderá competir marcando pontos enquanto aproveita a música e os efeitos sonoros.
 
+3. **Botão de Reiniciar**: 
+   - Após o término de uma partida, o **botão de reiniciar** ficará disponível, permitindo que o jogo seja reiniciado facilmente e você possa jogar novamente.
+
 ## Controles
 - **Tecla W**: Move a barra do time vermelho para cima.
 - **Tecla S**: Move a barra do time vermelho para baixo.
