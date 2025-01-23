@@ -223,7 +223,6 @@ function addScore() {
   }
 }
 
-// Funções da Bola
 function collideCheckLibrary(x, y) {
   // Verifica a colisão entre a bola e a barra
   collided = collideRectCircle(x, y, barWidth, barHeight, ballX, ballY, ballRadius);
@@ -254,13 +253,16 @@ function collideCheckLibrary(x, y) {
 }
 
 function handlePlayerCollision(y, distanceFromCenter) {
-  if (keyIsDown(87) && ballVelocityY > 0) { // Jogador movendo-se para cima
-    ballVelocityY *= -1;
-    ballY = Math.max(y + barHeight + ballRadius, ballY); // Evitar atravessar a barra
-  }
-  if (keyIsDown(83) && ballVelocityY < 0) { // Jogador movendo-se para baixo
-    ballVelocityY *= -1;
-    ballY = Math.min(y - ballRadius, ballY); // Evitar atravessar a barra
+  // Se o jogador estiver pressionando as teclas W ou S, não invertemos o Y da bola
+  if (!(keyIsDown(87) || keyIsDown(83))) { // Se não estiver pressionando W ou S
+    if (ballVelocityY > 0) { // Jogador movendo-se para cima
+      ballVelocityY *= -1;
+      ballY = Math.max(y + barHeight + ballRadius, ballY); // Evitar atravessar a barra
+    }
+    if (ballVelocityY < 0) { // Jogador movendo-se para baixo
+      ballVelocityY *= -1;
+      ballY = Math.min(y - ballRadius, ballY); // Evitar atravessar a barra
+    }
   }
 
   // Ajusta a posição e a velocidade da bola de acordo com a parte da barra atingida
@@ -298,6 +300,19 @@ function adjustBallVelocity(distanceFromCenter) {
   // Evita que a velocidade vertical fique muito baixa
   if (Math.abs(ballVelocityY) < 3) {
     ballVelocityY = 3 * Math.sign(ballVelocityY); // Define uma velocidade mínima
+  }
+
+  // Controle para não deixar a bola perder a física realista
+  if (Math.abs(ballVelocityY) > 12) {
+    ballVelocityY = 12 * Math.sign(ballVelocityY); // Limita a velocidade máxima
+  }
+}
+
+function adjustBallPositionBasedOnDirection() {
+  // Verifica se a bola está vindo do lado inferior do jogador
+  if (ballVelocityY < 0 && ballY > barHeight + ballRadius) {
+    // Ajusta a posição da bola para evitar atravessar a barra
+    ballY = barHeight + ballRadius;
   }
 }
 
