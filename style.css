@@ -1,0 +1,124 @@
+/* Resetando margens e paddings */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;  /* Impede o scroll */
+  display: flex;
+  flex-direction: column; /* Alinha os itens verticalmente */
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(45deg, #0d1b2a, #1f3a4d); /* Gradiente de azul escuro */
+}
+
+/* Estilizando o título */
+header {
+  position: absolute;
+  top: 60px; /* Distância do topo */
+  z-index: 2; /* Garante que o título fique acima do canvas */
+}
+
+h1 {
+  font-size: 3.5em; /* Tamanho do título */
+  color: white; /* Cor do título */
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+/* Animação para os feixes de luz */
+@keyframes lightBeams {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Efeitos de feixes de luz */
+.light-beams {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 25%, rgba(0, 0, 0, 0) 30%);
+  animation: lightBeams 10s linear infinite;
+  pointer-events: none;
+  z-index: -1; /* Coloca a camada de feixes abaixo do conteúdo principal */
+}
+
+/* Canvas */
+canvas {
+  display: flex;
+  justify-content: center;
+  z-index: 1; /* Garante que o canvas fique acima dos feixes de luz */
+}
+
+/* Rodapé fixo */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333; /* Cor de fundo preto claro */
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.social-icons {
+  margin-bottom: 10px;
+}
+
+.icon {
+  font-size: 2rem;
+  color: #fff;
+  margin: 0 15px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.icon:hover {
+  color: #477ea5; /* Cor do ícone ao passar o mouse */
+}
+
+.rights p {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+/* Botao iniciar */
+
+/* Estilos para o botão de iniciar */
+.botao {
+  padding: 10px 20px;
+  font-size: 18px;
+  margin: 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.botao:hover {
+  background-color: #128ed6d2;
+}
+
+/* Contêiner para os botões */
+.botoes-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Espaço entre os botões */
+  align-items: center;
+}
