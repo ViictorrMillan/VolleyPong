@@ -64,6 +64,7 @@ function preload() {
 
 function setup() {
   createCanvas(800, 450);
+  userStartAudio(); // Resolve o problema do AudioContext
 
   // Criar o contêiner para os botões
   let botoesContainer = createDiv();
