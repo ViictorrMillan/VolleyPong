@@ -21,7 +21,6 @@ let barWidth = 27;
 let barHeight = 40;
 let playerBarImage;
 
-
 // Variáveis do Oponente
 let opponentX = 761;  
 let opponentY = 150;
@@ -64,7 +63,9 @@ function preload() {
 
 function setup() {
   createCanvas(800, 450);
-  userStartAudio(); // Resolve o problema do AudioContext
+
+  // Garantir que o áudio será carregado corretamente após interação do usuário
+  userStartAudio(); 
 
   // Criar o contêiner para os botões
   let botoesContainer = createDiv();
@@ -82,7 +83,6 @@ function setup() {
 
   // Ao clicar no botão "Iniciar Jogo"
   botaoIniciar.mousePressed(() => {
-    userStartAudio(); // Resolve o problema do AudioContext
     MusicaFundo.loop(); // Inicia a música de fundo
     iniciouJogo = true; // Marca que o jogo iniciou
     botaoIniciar.remove(); // Remove o botão
@@ -95,10 +95,10 @@ function setup() {
     botaoIniciar.remove(); // Remove o botão iniciar
     botaoMultiplayer.remove(); // Remove o botão multiplayer
     iniciouJogo = true; // Marca que o jogo iniciou
-    userStartAudio(); // Resolve o problema do AudioContext
     MusicaFundo.loop(); // Inicia a música de fundo
   });
 }
+
 
 
 function draw() {
