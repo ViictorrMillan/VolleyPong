@@ -71,26 +71,29 @@ function setup() {
 
   // Criar o contêiner para os botões
   let botoesContainer = createDiv();
-  botoesContainer.addClass('botoes-container'); // Aplicando a classe de contêiner CSS
+  botoesContainer.addClass('botoes-container');
 
-  // Botão para iniciar o jogo em modo um jogador
+  // Botão para iniciar o jogo
   let botaoIniciar = createButton('Iniciar Jogo');
-  botaoIniciar.addClass('botao'); // Aplicando a classe de botão CSS
-  botoesContainer.child(botaoIniciar); // Adiciona o botão ao contêiner
+  botaoIniciar.addClass('botao');
+  botoesContainer.child(botaoIniciar);
 
   // Botão para iniciar em modo multiplayer
   let botaoMultiplayer = createButton('Modo Multiplayer');
-  botaoMultiplayer.addClass('botao'); // Aplicando a classe de botão CSS
-  botoesContainer.child(botaoMultiplayer); // Adiciona o botão ao contêiner
+  botaoMultiplayer.addClass('botao');
+  botoesContainer.child(botaoMultiplayer);
 
-  // Configurar ações dos botões
+ 
   botaoIniciar.mousePressed(() => {
+    startAudioContext(); // Agora usando o novo nome da função
     iniciarJogo(false); // Inicia o jogo no modo de um jogador
   });
-
+  
   botaoMultiplayer.mousePressed(() => {
+    startAudioContext(); // Agora usando o novo nome da função
     iniciarJogo(true); // Inicia o jogo no modo multiplayer
   });
+
 
   botaoReiniciar = createButton('Reiniciar Jogo');
   botaoReiniciar.addClass('botao'); // Aplicando a classe de botão CSS
@@ -123,18 +126,27 @@ function draw() {
   drawGameElements();
 }
 
+function startAudioContext() {
+  // Ativa o contexto de áudio após interação do usuário
+  if (getAudioContext().state !== 'running') {
+    getAudioContext().resume();
+  }
+}
+
+
 function iniciarJogo(modoMultiplayer) {
-  userStartAudio(); // Garante que o áudio pode ser iniciado após a interação com o usuário
+  // Garante que o áudio só seja ativado após interação do usuário
+  startAudioContext(); 
+
   if (!MusicaFundo.isPlaying()) {
-    MusicaFundo.loop(); // Inicia a música de fundo
+    MusicaFundo.loop(); // Começa a música de fundo
   }
 
   iniciouJogo = true; // Marca que o jogo começou
   multiplayer = modoMultiplayer; // Define o modo de jogo
+  
   console.log("Jogo iniciado. Modo multiplayer:", multiplayer);
-
-  // Mostrar o botão de reiniciar sem esconder os outros botões
-  botaoReiniciar.show(); // Aqui está a modificação!
+  botaoReiniciar.show(); // Mostra o botão de reiniciar
 }
 
 function reiniciarJogo() {
