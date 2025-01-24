@@ -1,7 +1,7 @@
 // Variáveis Bola
 let ballX = 400;  
 let ballY = 200;
-let ballDiameter =  30;
+let ballDiameter = 30;
 let ballRadius = ballDiameter / 2;
 let collided = false;
 let ballImage;
@@ -16,8 +16,6 @@ let ballVelocityY = ballStartingVelocity;
 let multiplayer = false; 
 let botaoReiniciar;
 
-
-
 // Variáveis do Jogador
 let playerX = 25;
 let playerY = 150;
@@ -29,7 +27,6 @@ let playerBarImage;
 let opponentX = 761;  
 let opponentY = 150;
 let opponentBarImage;
-
 
 // Velocidade para ambos os jogadores
 let barVelocity = 6;
@@ -68,6 +65,7 @@ function preload() {
   winPlayer1 = loadImage("assets/images/winPlayer1.jpg");
   winPlayer2 = loadImage("assets/images/winPlayer2.jpg");
 }
+
 function setup() {
   createCanvas(800, 450);
 
@@ -105,9 +103,7 @@ function setup() {
   
   // Esconde o botão de reiniciar inicialmente
   botaoReiniciar.hide();
-
 }
-
 
 function draw() {
   background(0);
@@ -127,7 +123,6 @@ function draw() {
   drawGameElements();
 }
 
-
 function iniciarJogo(modoMultiplayer) {
   userStartAudio(); // Garante que o áudio pode ser iniciado após a interação com o usuário
   if (!MusicaFundo.isPlaying()) {
@@ -142,7 +137,16 @@ function iniciarJogo(modoMultiplayer) {
   botaoReiniciar.show(); // Aqui está a modificação!
 }
 
-
+function reiniciarJogo() {
+  playerScore = 0;
+  opponentScore = 0;
+  ballX = 400;
+  ballY = 200;
+  ballVelocityX = ballStartingVelocity;
+  ballVelocityY = ballStartingVelocity;
+  botaoReiniciar.hide(); // Esconde o botão de reiniciar após o reinício do jogo
+  iniciouJogo = false; // Volta para a tela inicial
+}
 // Função para desenhar os elementos do jogo
 function drawGameElements() {
   // Desenhar as áreas de fundo coloridas para o placar
