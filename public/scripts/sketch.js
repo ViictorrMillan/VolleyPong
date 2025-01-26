@@ -54,16 +54,16 @@ let telaInicial;
 let winPlayer1, winPlayer2;
 
 function preload() {
-  BateBola = loadSound("/sounds/batebola.mp3");
-  Apito = loadSound("/sounds/ponto.mp3");
-  MusicaFundo = loadSound("/sounds/trilha.mp3");
-  fonteTexto = loadFont("/fonts/BebasNeue-Regular.ttf");
-  telaInicial = loadImage("/images/telaInicial.jpg");
-  ballImage = loadImage("/images/ball.png");
-  playerBarImage = loadImage("/images/player1.png");
-  opponentBarImage = loadImage("/images/player2.png");
-  winPlayer1 = loadImage("/images/winplayer1.jpg");
-  winPlayer2 = loadImage("/images/winplayer2.jpg");
+  BateBola = loadSound("/public/sounds/batebola.mp3");
+  Apito = loadSound("/public/sounds/ponto.mp3");
+  MusicaFundo = loadSound("/public/sounds/trilha.mp3");
+  fonteTexto = loadFont("/public/fonts/BebasNeue-Regular.ttf");
+  telaInicial = loadImage("https://raw.githubusercontent.com/ViictorrMillan/VolleyPong/refs/heads/main/public/Images/telainicial.jpg");
+  ballImage = loadImage("https://raw.githubusercontent.com/ViictorrMillan/VolleyPong/refs/heads/main/public/Images/ball.png");
+  playerBarImage = loadImage("https://raw.githubusercontent.com/ViictorrMillan/VolleyPong/refs/heads/main/public/Images/player1.png");
+  opponentBarImage = loadImage("https://raw.githubusercontent.com/ViictorrMillan/VolleyPong/refs/heads/main/public/Images/player2.png");
+  winPlayer1 = loadImage("https://raw.githubusercontent.com/ViictorrMillan/VolleyPong/refs/heads/main/public/Images/winplayer1.jpg");
+  winPlayer2 = loadImage("https://raw.githubusercontent.com/ViictorrMillan/VolleyPong/refs/heads/main/public/Images/WinPlayer2.jpg");
 }
 
 
