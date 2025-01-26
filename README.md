@@ -16,6 +16,9 @@ O jogo é ambientado em uma quadra de vôlei, com elementos visuais que remetem 
 3. **Botão de Reiniciar**: 
    - Após o término de uma partida, o **botão de reiniciar** ficará disponível, permitindo que o jogo seja reiniciado facilmente e você possa jogar novamente.
 
+4. **Botão de Som**:
+   - Durante o jogo, você pode ativar ou desativar o som clicando no botão de som localizado na tela. Isso permite que você controle a música e os efeitos sonoros enquanto joga.
+
 ## Controles
 - **Tecla W**: Move a barra do time vermelho para cima.
 - **Tecla S**: Move a barra do time vermelho para baixo.
@@ -33,6 +36,6 @@ O jogo é ambientado em uma quadra de vôlei, com elementos visuais que remetem 
 Este jogo foi desenvolvido como parte do projeto educacional do programa **Oracle Next Education (ONE)** da **Alura**, uma iniciativa que visa capacitar desenvolvedores em formação.
 
 ## Link para Jogo
-Experimente o jogo agora mesmo: [VolleyPong na Vercel](https://link-da-vercel.com)
+Experimente o jogo agora mesmo: [VolleyPong na Vercel](https://volley-pong.vercel.app)
 
 Divirta-se e boa partida!
