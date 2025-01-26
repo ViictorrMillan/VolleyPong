@@ -66,16 +66,16 @@ function preload() {
 
     // Carregando sons com Howler.js
     MusicaFundo = new Howl({
-      src: ["/public/sounds/trilha.mp3"],
+      src: ["https://cdn.jsdelivr.net/gh/ViictorrMillan/VolleyPong@main/public/Sounds/trilha.mp3"],
       volume: 0.5,
       loop: true,
   });
   Apito = new Howl({
-    src: ["/public/sounds/apito.mp3"],
+    src: ["https://cdn.jsdelivr.net/gh/ViictorrMillan/VolleyPong@main/public/Sounds/apito.mp3"],
     volume: 1.0,
   });
   BateBola = new Howl({
-    src: ["/public/sounds/batebola.mp3"],
+    src: ["https://cdn.jsdelivr.net/gh/ViictorrMillan/VolleyPong@main/public/Sounds/batebola.mp3"],
     volume: 1.0,
   });
 
