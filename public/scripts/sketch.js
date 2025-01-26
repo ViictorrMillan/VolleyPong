@@ -57,7 +57,7 @@ function preload() {
   BateBola = loadSound("/public/sounds/batebola.mp3");
   Apito = loadSound("/public/sounds/ponto.mp3");
   MusicaFundo = loadSound("/public/sounds/trilha.mp3");
-  fonteTexto = loadFont("/public/fonts/BebasNeue-Regular.ttf");
+  fonteTexto = loadFont("https://fonts.gstatic.com/s/bebasneue/v13/pxiDypj8iD5pIvi7aI6kZ4eNzBNS0xxD2P-3aA.woff2");
   telaInicial = loadImage("https://raw.githubusercontent.com/ViictorrMillan/VolleyPong/refs/heads/main/public/Images/telainicial.jpg");
   ballImage = loadImage("https://raw.githubusercontent.com/ViictorrMillan/VolleyPong/refs/heads/main/public/Images/ball.png");
   playerBarImage = loadImage("https://raw.githubusercontent.com/ViictorrMillan/VolleyPong/refs/heads/main/public/Images/player1.png");
