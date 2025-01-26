@@ -54,9 +54,6 @@ let telaInicial;
 let winPlayer1, winPlayer2;
 
 function preload() {
-  BateBola = loadSound("/public/sounds/batebola.mp3");
-  Apito = loadSound("/public/sounds/ponto.mp3");
-  MusicaFundo = loadSound("/public/sounds/trilha.mp3");
   fonteTexto = loadFont("https://raw.githubusercontent.com/ViictorrMillan/VolleyPong/main/public/fonts/BebasNeue-Regular.ttf");
   telaInicial = loadImage("https://raw.githubusercontent.com/ViictorrMillan/VolleyPong/refs/heads/main/public/Images/telainicial.jpg");
   ballImage = loadImage("https://raw.githubusercontent.com/ViictorrMillan/VolleyPong/refs/heads/main/public/Images/ball.png");
@@ -86,12 +83,10 @@ function setup() {
 
  
   botaoIniciar.mousePressed(() => {
-    startAudioContext(); // Agora usando o novo nome da função
     iniciarJogo(false); // Inicia o jogo no modo de um jogador
   });
   
   botaoMultiplayer.mousePressed(() => {
-    startAudioContext(); // Agora usando o novo nome da função
     iniciarJogo(true); // Inicia o jogo no modo multiplayer
   });
 
@@ -127,22 +122,8 @@ function draw() {
   drawGameElements();
 }
 
-function startAudioContext() {
-  // Ativa o contexto de áudio após interação do usuário
-  if (getAudioContext().state !== 'running') {
-    getAudioContext().resume();
-  }
-}
-
 
 function iniciarJogo(modoMultiplayer) {
-  // Garante que o áudio só seja ativado após interação do usuário
-  startAudioContext(); 
-
-  if (!MusicaFundo.isPlaying()) {
-    MusicaFundo.loop(); // Começa a música de fundo
-  }
-
   iniciouJogo = true; // Marca que o jogo começou
   multiplayer = modoMultiplayer; // Define o modo de jogo
   
@@ -282,14 +263,14 @@ function addScore() {
   // Se a bola ultrapassar a borda direita (790)
   if (ballX + ballRadius > width) {
     playerScore += 1;  // Incrementa o ponto para o jogador
-    Apito.play();  // Toca o som
+   //  Apito.play();  // Toca o som
     resetBall();  // Reseta a posição da bola
   }
   
   // Se a bola ultrapassar a borda esquerda (10)
   if (ballX - ballRadius < 0) {
     opponentScore += 1;  // Incrementa o ponto para o oponente
-    Apito.play();  // Toca o som
+   //  Apito.play();  // Toca o som
     resetBall();  // Reseta a posição da bola
   }
 
@@ -357,7 +338,7 @@ function collideCheckLibrary(x, y) {
     increaseSpeed();
 
     // Reproduz o som da colisão
-    BateBola.play();
+   //  BateBola.play();
   }
 }
 
