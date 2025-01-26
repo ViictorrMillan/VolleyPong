@@ -54,16 +54,16 @@ let telaInicial;
 let winPlayer1, winPlayer2;
 
 function preload() {
-  BateBola = loadSound("assets/Sounds/BateBola.mp3");
-  Apito = loadSound("assets/Sounds/ponto.mp3");
-  MusicaFundo = loadSound("assets/Sounds/trilha.mp3");
-  fonteTexto = loadFont("assets/Fonts/BebasNeue-Regular.ttf");
-  telaInicial = loadImage("assets/images/telaInicial.jpg");  // Carregar a imagem de tela inicial
+  BateBola = loadSound("assets/sounds/batebola.mp3");
+  Apito = loadSound("assets/sounds/ponto.mp3");
+  MusicaFundo = loadSound("assets/sounds/trilha.mp3");
+  fonteTexto = loadFont("assets/fonts/BebasNeue-Regular.ttf");
+  telaInicial = loadImage("assets/images/telainicial.jpg");  // Carregar a imagem de tela inicial
   ballImage = loadImage("assets/images/ball.png");
-  playerBarImage = loadImage("assets/images/Player1.png");
-  opponentBarImage = loadImage("assets/images/Player2.png");
-  winPlayer1 = loadImage("assets/images/winPlayer1.jpg");
-  winPlayer2 = loadImage("assets/images/winPlayer2.jpg");
+  playerBarImage = loadImage("assets/images/player1.png");
+  opponentBarImage = loadImage("assets/images/player2.png");
+  winPlayer1 = loadImage("assets/images/winplayer1.jpg");
+  winPlayer2 = loadImage("assets/images/winplayer2.jpg");
 }
 
 function setup() {
