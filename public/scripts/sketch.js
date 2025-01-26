@@ -37,6 +37,8 @@ let opponentScore = 0;
 let fonteTexto;
 
 // Sons
+let somAtivado = false;
+let botaoAtivarSom;
 let BateBola;
 let Apito;
 let MusicaFundo;
@@ -61,6 +63,22 @@ function preload() {
   opponentBarImage = loadImage("https://raw.githubusercontent.com/ViictorrMillan/VolleyPong/refs/heads/main/public/Images/player2.png");
   winPlayer1 = loadImage("https://raw.githubusercontent.com/ViictorrMillan/VolleyPong/refs/heads/main/public/Images/winplayer1.jpg");
   winPlayer2 = loadImage("https://raw.githubusercontent.com/ViictorrMillan/VolleyPong/refs/heads/main/public/Images/WinPlayer2.jpg");
+
+    // Carregando sons com Howler.js
+    MusicaFundo = new Howl({
+      src: ["/public/sounds/trilha.mp3"],
+      volume: 0.5,
+      loop: true,
+  });
+  Apito = new Howl({
+    src: ["/public/sounds/apito.mp3"],
+    volume: 1.0,
+  });
+  BateBola = new Howl({
+    src: ["/public/sounds/batebola.mp3"],
+    volume: 1.0,
+  });
+
 }
 
 
@@ -102,6 +120,25 @@ function setup() {
   
   // Esconde o botão de reiniciar inicialmente
   botaoReiniciar.hide();
+
+    // Botão para ativar/desativar o som
+  botaoSom = createButton('Ativar Som');
+  botaoSom.addClass('botao');
+  botoesContainer.child(botaoSom);
+
+  // Alternar som ao clicar no botão
+  botaoSom.mousePressed(() => {
+    if (somAtivado) {
+      MusicaFundo.pause(); // Pausa a música de fundo
+      somAtivado = false; // Atualiza o estado do som
+      botaoSom.html('Ativar Som'); // Altera o texto do botão
+    } else {
+      MusicaFundo.play(); // Toca a música de fundo
+      somAtivado = true; // Atualiza o estado do som
+      botaoSom.html('Desativar Som'); // Altera o texto do botão
+    }
+  });
+
 }
 
 function draw() {
@@ -262,18 +299,26 @@ function showScore() {
 function addScore() {
   // Se a bola ultrapassar a borda direita (790)
   if (ballX + ballRadius > width) {
-    playerScore += 1;  // Incrementa o ponto para o jogador
-   //  Apito.play();  // Toca o som
-    resetBall();  // Reseta a posição da bola
+    playerScore += 1; // Incrementa o ponto para o jogador
+    
+    if (somAtivado) {
+      Apito.play(); // Toca o som apenas se estiver ativado
+    }
+    
+    resetBall(); // Reseta a posição da bola
   }
   
   // Se a bola ultrapassar a borda esquerda (10)
   if (ballX - ballRadius < 0) {
-    opponentScore += 1;  // Incrementa o ponto para o oponente
-   //  Apito.play();  // Toca o som
-    resetBall();  // Reseta a posição da bola
+    opponentScore += 1; // Incrementa o ponto para o oponente
+    
+    if (somAtivado) {
+      Apito.play(); // Toca o som apenas se estiver ativado
+    }
+    
+    resetBall(); // Reseta a posição da bola
   }
-
+}
   // Verificar se algum jogador atingiu 5 pontos
   if (playerScore >= 5) {
     // Exibir que o Jogador 1 venceu
@@ -282,7 +327,7 @@ function addScore() {
     // Exibir que o Jogador 2 venceu
     gameOver("Player 2");
   }
-}
+
 
 // Função para exibir a tela de fim de jogo
 function gameOver(winner) {
@@ -337,8 +382,9 @@ function collideCheckLibrary(x, y) {
     // Aumenta a velocidade da bola após a colisão
     increaseSpeed();
 
-    // Reproduz o som da colisão
-   //  BateBola.play();
+    if (somAtivado) {
+      BateBola.play();
+    }
   }
 }
 
